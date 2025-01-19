@@ -1,0 +1,13 @@
+@use "Colors" as *;
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.item-container {
+  margin: 0.5rem 0;
+  background-color: $mercadolibre-white;
+}

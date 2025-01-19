@@ -1,0 +1,12 @@
+@use "Colors" as *;
+
+.layout {
+  background-color: $mercadolibre-lightest-gray;
+  min-height: 100vh;
+}
+
+.layout_content {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  padding: 0 4rem;
+}
