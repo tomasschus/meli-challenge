@@ -44,6 +44,16 @@ This will start both the frontend and backend services:
 The frontend will run on <http://localhost:5173> (Vite development server).
 The backend will run on <http://localhost:5000> (Express server).
 
+### Running in Development mode
+
+To run the application in development mode, use the following command in the root folder:
+
+```bash
+npm run dev
+```
+
+This will run backend and frontend servers
+
 ### Build for Production
 
 To build the project for production, run:
