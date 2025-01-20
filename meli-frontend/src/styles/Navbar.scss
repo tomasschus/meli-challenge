@@ -1,4 +1,4 @@
-@use "Colors" as *;
+@use "Globals" as *;
 
 .navbar {
   display: grid;
@@ -66,19 +66,19 @@
   }
 
   .search input {
-    padding: 0.5rem;
+    padding: $spacing-small;
     font-size: 0.9rem;
   }
 
   .search button {
-    padding: 0.5rem;
+    padding: $spacing-small;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
     grid-template-columns: 1fr;
-    padding: 0.8rem;
+    padding: $spacing-medium;
   }
 
   .logo {
@@ -93,10 +93,10 @@
 
   .search input {
     width: 90%;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .search button {
-    padding: 0.5rem;
+    padding: $spacing-small;
   }
 }

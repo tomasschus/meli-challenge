@@ -72,7 +72,9 @@ export const Items = () => {
                   <span className="items-list-item-price">
                     {formatMoney(product.price.amount, {
                       currency: product.price.currency,
+                      locale: "es-AR",
                       decimalScale: 0,
+                      inputDecimalScale: 0,
                     })}
                   </span>
                   {product.free_shipping && (

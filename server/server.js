@@ -3,6 +3,7 @@ const axios = require("axios");
 var cors = require("cors");
 const app = express();
 const port = 5000;
+const path = require("path");
 
 app.use(express.json());
 app.use(
@@ -22,6 +23,8 @@ app.get("/api/items", async (req, res) => {
         name: "Tomás",
         lastname: "Schuster",
       },
+      completeItem: response.data,
+
       items: response.data.results.map((product) => {
         return {
           id: product.id,
@@ -29,7 +32,6 @@ app.get("/api/items", async (req, res) => {
           price: {
             currency: product.currency_id,
             amount: product.price,
-            decimals: 0,
           },
           picture: product.thumbnail,
           condition: product.condition,
@@ -53,8 +55,24 @@ app.get("/api/items/:id", async (req, res) => {
       `https://api.mercadolibre.com/items/${id}/description`
     );
     res.json({
-      item: productResponse.data,
-      description: descriptionResponse.data.plain_text,
+      author: {
+        name: "Tomás",
+        lastname: "Schuster",
+      },
+      data: productResponse.data,
+      item: {
+        id: productResponse.data.id,
+        title: productResponse.data.title,
+        price: {
+          currency: productResponse.data.currency_id,
+          amount: productResponse.data.price,
+        },
+        picture: productResponse.data.pictures[0].url,
+        condition: productResponse.data.condition,
+        free_shipping: productResponse.data.shipping.free_shipping,
+        sold_quantity: productResponse.data.sold_quantity,
+        description: descriptionResponse.data.plain_text,
+      },
     });
   } catch (error) {
     res.status(500).send("Error al obtener el detalle del producto");
@@ -62,9 +80,9 @@ app.get("/api/items/:id", async (req, res) => {
 });
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, "public")));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
   });
 }
 

@@ -20,7 +20,10 @@ export const Navbar = () => {
         className="logo"
         src="/assets/Logo_ML.png"
         alt="MercadoLibre"
-        onClick={() => navegate("/")}
+        onClick={() => {
+          navegate("/");
+          setSearch("");
+        }}
       />
       <div className="search">
         <input
