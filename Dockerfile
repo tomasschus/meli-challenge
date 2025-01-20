@@ -9,7 +9,7 @@ RUN npm install && npm run build
 # Build for the backend
 WORKDIR /app
 COPY server ./server
-COPY package.json package-lock.json ./
+WORKDIR /app/server
 RUN npm install
 
 # Copy the frontend build to the backend
