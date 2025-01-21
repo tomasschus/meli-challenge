@@ -1,6 +1,7 @@
 import "@styles/Item.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Helmet } from "react-helmet";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { getItem } from "../resources/getItem";
 import { Item as ItemType } from "../types/Item";
@@ -16,7 +17,6 @@ export const Item = () => {
       try {
         setIsLoading(true);
         const response = await getItem(id!);
-        console.log(response.data);
         setItem(response.data.item);
         setIsLoading(false);
       } catch (error) {
@@ -34,11 +34,23 @@ export const Item = () => {
   }
 
   if (!item) {
-    return <div>Producto no encontrado</div>;
+    return (
+      <div>
+        <Helmet>
+          <title>Producto no encontrado - Mercado Libre</title>
+          <meta name="description" content="Producto no encontrado" />
+        </Helmet>
+        <h1>Producto no encontrado</h1>
+      </div>
+    );
   }
 
   return (
     <div className="item-container">
+      <Helmet>
+        <title>{item.title} - Mercado Libre</title>
+        <meta name="description" content={item.description} />
+      </Helmet>
       <div className="item-main-container">
         <div className="item-image-container">
           <img src={item.picture} alt={item.title} />
@@ -60,10 +72,10 @@ export const Item = () => {
           <button>Comprar</button>
         </div>
       </div>
-      <div className="item-description-container">
+      <section className="item-description-container">
         <h2>Descripción del producto</h2>
         <p>{item.description}</p>
-      </div>
+      </section>
     </div>
   );
 };

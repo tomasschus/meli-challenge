@@ -5,9 +5,10 @@ import { LoadingSpinner } from "../components/LoadingSpinner";
 import { getProducts } from "../resources/getProducts";
 import { SearchProduct } from "../types/SearchProduct";
 import { formatMoney } from "../utils/money.utils";
+import { Helmet } from "react-helmet";
 
 export const Items = () => {
-  const navegate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("q");
@@ -17,7 +18,7 @@ export const Items = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleGoToProduct = (productId: string) => {
-    navegate(`/items/${productId}`);
+    navigate(`/items/${productId}`);
   };
 
   useEffect(() => {
@@ -48,20 +49,23 @@ export const Items = () => {
 
   return (
     <div className="items">
-      <div className="items-categories">
+      <Helmet>
+        <title>{query} - Mercado Libre</title>
+        <meta
+          name="description"
+          content={`Resultados de búsqueda para ${query}`}
+        />
+      </Helmet>
+      <nav className="items-categories">
         {categories?.map((category, index) => (
           <span key={index}>{category}</span>
         ))}
-      </div>
+      </nav>
 
-      <div className="items-container">
+      <main className="items-container">
         {products?.map((product, i) => (
-          <>
-            <div
-              key={product.id}
-              className="items-list-item"
-              onClick={() => handleGoToProduct(product.id)}
-            >
+          <article key={product.id} className="items-list-item">
+            <div onClick={() => handleGoToProduct(product.id)}>
               <img
                 className="items-list-item-image"
                 src={product.picture}
@@ -85,7 +89,7 @@ export const Items = () => {
                     />
                   )}
                 </div>
-                <span className="items-list-item-title">{product.title}</span>
+                <h2 className="items-list-item-title">{product.title}</h2>
               </div>
               <div className="items-list-item-location-container">
                 <span className="items-list-item-location">
@@ -94,9 +98,9 @@ export const Items = () => {
               </div>
             </div>
             {i < products.length - 1 && <div className="divider" />}
-          </>
+          </article>
         ))}
-      </div>
+      </main>
     </div>
   );
 };

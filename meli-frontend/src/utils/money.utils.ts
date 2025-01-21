@@ -50,18 +50,3 @@ export const formatMoney = (
     ? exchangeChars(formattedAmount, ".", ",")
     : formattedAmount;
 };
-
-export const parseMoney = (
-  amount: string,
-  { decimalSeparator = ",", decimalScale = 0 } = {}
-) => {
-  const isNegative = amount.startsWith("-");
-  const [int, frac] = amount.split(decimalSeparator);
-  return (
-    (isNegative ? -1 : 1) *
-    (parseInt(int!.replace(/[^0-9]/g, "")) * Math.pow(10, decimalScale) +
-      (frac
-        ? parseInt(frac.replace(/[^0-9]/g, "")) * Math.pow(10, decimalScale - 2)
-        : 0))
-  );
-};
