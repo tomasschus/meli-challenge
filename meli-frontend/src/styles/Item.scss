@@ -8,7 +8,7 @@
 }
 
 .item-container {
-  margin-bottom:  $spacing-small;
+  margin-bottom: $spacing-small;
   background-color: $mercadolibre-white;
   border-radius: 4px;
 }
@@ -109,7 +109,7 @@
     font-size: $font-size-medium;
     font-weight: 300;
     color: $mercadolibre-light-gray;
-    max-width: calc( 2/3 * 100%);
+    max-width: calc(2 / 3 * 100%);
   }
 
   @media (max-width: 768px) {

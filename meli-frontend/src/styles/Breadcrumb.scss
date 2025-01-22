@@ -1,35 +1,34 @@
 @use "Globals" as *;
 
 .breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-medium;
+  color: $mercadolibre-medium-gray;
+  margin: $spacing-medium 0;
+
+  .breadcrumb-item {
     display: flex;
     align-items: center;
-    font-size: $font-size-medium;
-    color: $mercadolibre-medium-gray;
-    margin: $spacing-medium 0;
-  
-    .breadcrumb-item {
-      display: flex;
-      align-items: center;
-  
-      a {
-        text-decoration: none;
-        color: $mercadolibre-light-gray;
-        transition: color 0.2s;
-  
-        &:hover {
-          color: $mercadolibre-blue;
-        }
-      }
-  
-      .breadcrumb-separator {
-        margin: 0 $spacing-small;
-        color: $mercadolibre-light-gray;
-      }
-  
-      .breadcrumb-current {
-        font-weight: bold;
-        color: $mercadolibre-medium-gray;
+
+    a {
+      text-decoration: none;
+      color: $mercadolibre-light-gray;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $mercadolibre-blue;
       }
     }
+
+    .breadcrumb-separator {
+      margin: 0 $spacing-small;
+      color: $mercadolibre-light-gray;
+    }
+
+    .breadcrumb-current {
+      font-weight: bold;
+      color: $mercadolibre-medium-gray;
+    }
   }
-  
+}

@@ -1,6 +1,6 @@
 export const applyDecimalScale = (
   number: number | string,
-  decimalScale: number
+  decimalScale: number,
 ): [string, string] => {
   const numberAsNumber =
     typeof number === "string" ? parseFloat(number) : number;

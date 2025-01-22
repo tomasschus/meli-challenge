@@ -108,7 +108,7 @@ describe("money.util", () => {
 
     test("should swap delimiters when swapDelimiters is true", () => {
       expect(formatMoney(123456789, { swapDelimiters: true })).toBe(
-        "$ 1,234,567.89"
+        "$ 1,234,567.89",
       );
     });
   });

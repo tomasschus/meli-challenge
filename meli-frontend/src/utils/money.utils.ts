@@ -20,16 +20,16 @@ export const formatMoney = (
     decimalScale: number;
     locale: string;
     swapDelimiters: boolean;
-  }> = {}
+  }> = {},
 ) => {
   let amountToFormat = typeof amount === "string" ? parseFloat(amount) : amount;
   if (inputDecimalScale !== 0) {
     const [integerPart, decimalPart] = applyDecimalScale(
       amountToFormat,
-      inputDecimalScale
+      inputDecimalScale,
     );
     amountToFormat = parseFloat(
-      integerPart + (decimalPart ? `.${decimalPart}` : "")
+      integerPart + (decimalPart ? `.${decimalPart}` : ""),
     );
   }
   const numberFormat =

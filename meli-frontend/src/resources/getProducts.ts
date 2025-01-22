@@ -4,6 +4,6 @@ import { SearchProductResponse } from "../types/SearchProduct";
 
 export function getProducts(query: string) {
   return axios.get<SearchProductResponse>(
-    `${BACKEND_URL}/api/items?q=${query}`
+    `${BACKEND_URL}/api/items?q=${query}`,
   );
 }
