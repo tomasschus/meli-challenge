@@ -6,17 +6,14 @@ import { Items } from "./pages/Items";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/items" element={<Items />} />
-          <Route path="/items/:id" element={<Item />} />
-          <Route index element={<Home />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
-          {/* Routes */}
-        </Route>
-      </Routes>
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/items" element={<Items />} />
+        <Route path="/items/:id" element={<Item />} />
+        <Route index element={<Home />} />
+        {/* <Route path="*" element={<NotFound />} /> No implementado */}
+      </Route>
+    </Routes>
   );
 }
 

@@ -28,7 +28,7 @@
   border-top-left-radius: 0.2rem;
   border-bottom-left-radius: 0.2rem;
   border: none;
-  font-size: 1rem;
+  font-size: $font-size-medium;
 }
 
 .search input::placeholder {
@@ -67,7 +67,7 @@
 
   .search input {
     padding: $spacing-small;
-    font-size: 0.9rem;
+    font-size: $font-size-medium;
   }
 
   .search button {
@@ -93,7 +93,7 @@
 
   .search input {
     width: 90%;
-    font-size: 1rem;
+    font-size: $font-size-medium;
   }
 
   .search button {

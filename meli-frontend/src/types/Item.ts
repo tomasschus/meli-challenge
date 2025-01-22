@@ -2,6 +2,7 @@ import { Price } from "./globals";
 
 export interface ItemResponse {
   item: Item;
+  categories: string[];
 }
 
 export interface Item {

@@ -27,6 +27,7 @@ export const Navbar = () => {
       />
       <div className="search">
         <input
+          aria-label="Buscar productos"
           type="text"
           placeholder="Nunca dejes de buscar"
           value={search}
@@ -37,7 +38,7 @@ export const Navbar = () => {
             }
           }}
         />
-        <button onClick={handleSearch}>
+        <button onClick={handleSearch} aria-label="Buscar">
           <img
             className="button-icon"
             src="/assets/ic_Search.png"

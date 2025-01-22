@@ -54,12 +54,21 @@ app.get("/api/items/:id", async (req, res) => {
     const descriptionResponse = await axios.get(
       `https://api.mercadolibre.com/items/${id}/description`
     );
+
+    const categoryResponse = await axios.get(
+      `https://api.mercadolibre.com/categories/${productResponse.data.category_id}`
+    );
+
+    const categories = categoryResponse.data.path_from_root.map(
+      (category) => category.name
+    );
+
     res.json({
       author: {
         name: "Tomás",
         lastname: "Schuster",
       },
-      data: productResponse.data,
+      categories: categories,
       item: {
         id: productResponse.data.id,
         title: productResponse.data.title,

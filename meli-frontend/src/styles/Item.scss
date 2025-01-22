@@ -8,8 +8,9 @@
 }
 
 .item-container {
-  margin: $spacing-small 0;
+  margin-bottom:  $spacing-small;
   background-color: $mercadolibre-white;
+  border-radius: 4px;
 }
 
 .item-main-container {
@@ -57,24 +58,24 @@
 
   h1 {
     margin: $spacing-medium 0 0 0;
-    font-size: 24px;
+    font-size: $font-size-x-large;
     font-weight: 600;
   }
 
   h2 {
     margin: $spacing-large 0 0 0;
-    font-size: 46px;
+    font-size: $font-size-xxxx-large;
     font-weight: 300;
 
     @media (max-width: 768px) {
-      font-size: 36px;
+      font-size: $font-size-xxx-large;
     }
   }
 
   button {
     margin-top: $spacing-large;
     padding: $spacing-medium $spacing-medium;
-    font-size: 18px;
+    font-size: $font-size-large;
     font-weight: 300;
     color: $mercadolibre-white;
     background-color: $mercadolibre-blue;
@@ -98,16 +99,22 @@
   margin: $spacing-medium;
 
   h2 {
-    font-size: 28px;
+    font-size: $font-size-xx-large;
     font-weight: 300;
     color: $mercadolibre-dark;
     margin: 0;
   }
 
   p {
-    font-size: 16px;
+    font-size: $font-size-medium;
     font-weight: 300;
     color: $mercadolibre-light-gray;
-    max-width: 680px;
+    max-width: calc( 2/3 * 100%);
+  }
+
+  @media (max-width: 768px) {
+    p {
+      max-width: 100%;
+    }
   }
 }

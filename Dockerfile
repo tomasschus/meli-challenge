@@ -1,6 +1,8 @@
 FROM node:20 AS build
 
 # Build for the frontend
+ARG VITE_BACKEND_URL=http://localhost:5000
+
 WORKDIR /app
 COPY meli-frontend ./meli-frontend
 WORKDIR /app/meli-frontend
@@ -19,7 +21,6 @@ RUN cp -r /app/meli-frontend/dist /app/server/public
 FROM node:20
 
 ENV NODE_ENV=production
-ENV VITE_BACKEND_URL=http://localhost:5000
 
 WORKDIR /app
 COPY --from=build /app /app

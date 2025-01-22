@@ -46,6 +46,8 @@ The backend will run on <http://localhost:5000> (Express server).
 
 ### Running in Development mode
 
+Remember to create a .env file based on the .env.example file located in /meli-frontend folder.
+
 To run the application in development mode, use the following command in the root folder:
 
 ```bash

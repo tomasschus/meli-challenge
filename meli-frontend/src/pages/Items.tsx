@@ -27,10 +27,8 @@ export const Items = () => {
         try {
           setIsLoading(true);
           const response = await getProducts(query);
-
           setProducts(response.data.items.slice(0, 4));
           setCategories(response.data.categories);
-          console.log(response.data.categories);
           setIsLoading(false);
         } catch (error) {
           console.error(error);
@@ -65,7 +63,10 @@ export const Items = () => {
       <main className="items-container">
         {products?.map((product, i) => (
           <article key={product.id} className="items-list-item">
-            <div onClick={() => handleGoToProduct(product.id)}>
+            <div
+              onClick={() => handleGoToProduct(product.id)}
+              className="items-list-item-content"
+            >
               <img
                 className="items-list-item-image"
                 src={product.picture}
