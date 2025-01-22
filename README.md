@@ -1,6 +1,6 @@
 # Technical Challenge for MELI
 
-This project was created with Vite for the frontend and Express for the backend. It is part of the technical challenge for Mercado Libre.
+This project was created with [Vite](https://vite.dev) for the frontend and [Express](https://expressjs.com) for the backend. It is part of the technical challenge for Mercado Libre.
 
 ## Project Structure
 
@@ -33,16 +33,11 @@ git clone https://github.com/tomasschus/meli-challenge.git
 cd meli-challenge
 ```
 
-2. Install the dependencies for both the frontend and backend:
+2. Install the dependencies:
 
 ```bash
 npm install
 ```
-
-This will start both the frontend and backend services:
-
-The frontend will run on <http://localhost:5173> (Vite development server).
-The backend will run on <http://localhost:5000> (Express server).
 
 ### Running in Development mode
 
@@ -54,7 +49,10 @@ To run the application in development mode, use the following command in the roo
 npm run dev
 ```
 
-This will run backend and frontend servers
+This will start both the frontend and backend services:
+
+The frontend will run on <http://localhost:5173> (Vite development server).
+The backend will run on <http://localhost:5000> (Express server).
 
 ### Build for Production
 
